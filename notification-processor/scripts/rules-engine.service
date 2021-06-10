@@ -1,0 +1,28 @@
+[Unit]
+Description=Rules Engine Service
+Wants=network.target
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+
+RestartSec=10
+Restart=always
+
+Environment='KAFKA_CLUSTER=localhost:9092'
+Environment=KAFKA_GROUP_ID=core_rules_engine_group_01
+
+Environment=KAFKA_AUTH_ENABLED=true
+Environment=KAFKA_USERNAME=admin
+Environment='KAFKA_PASSWORD=12345678'
+
+Environment='EVENTS_DATABASE_URL=mysql://root:Onstak123@events-storage.iot.onstak.io:3306/iot_events_prod'
+
+Environment='CORE_DATABASE_URL=mysql://root:Onstak123@events-storage.iot.onstak.io:3306/iot_events_prod'
+
+ExecStart=/usr/bin/node /opt/rules-engine/src/main.js
+
+[Install]
+WantedBy=multi-user.target

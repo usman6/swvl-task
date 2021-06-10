@@ -1,0 +1,11 @@
+#exclude files
+notification-manager-api/package-lock.json
+notification-processor/package-lock.json
+email-notification-sender/package-lock.json
+start.sh
+start.ps1
+
+# exclude directories
+notification-manager-api/node_modules
+notification-processor/node_modules
+email-notification-sender/node_modules
