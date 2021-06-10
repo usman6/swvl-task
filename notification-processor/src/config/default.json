@@ -1,0 +1,18 @@
+{
+    "nodeEnv": "development",
+
+    "apiUrl": "http://localhost:8080",
+
+    "redisHost" : "localhost",
+    "redisPort" : 6379,
+
+    "cacheRefreshInterval": 300,
+
+    "kafkaCluster": "localhost:9092",
+    "kafkaGroupId": "notification_processor_consumer_group_01",
+    "kafkaRawNotificationsTopic": "notifications-raw",
+    "kafkaEmailNotificationsTopic": "notifications-email",
+    "kafkaPushNotificationsTopic": "notifications-push",
+    "kafkaSmsNotificationsTopic": "notifications-sms"
+
+}

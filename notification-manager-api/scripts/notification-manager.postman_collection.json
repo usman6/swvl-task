@@ -1,0 +1,627 @@
+{
+	"info": {
+		"_postman_id": "a29c98d0-f4b9-41f4-badb-575eb4ff23fc",
+		"name": "notification-manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Language",
+			"item": [
+				{
+					"name": "LanguageGetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/language",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"language"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LanguageQuery",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"pageSize\": 100,\n\t\"query\": [\n\t\t{\n\t\t\t\"action\": \"$eq\",\n\t\t\t\"name\": \"id\",\n\t\t\t\"value\": 1\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/language/query",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"language",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LanguageCreate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\":\"fr\",\r\n    \"displayName\":\"French\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/language",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"language"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LanguageUpdate",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\":\"sx\",\r\n    \"displayName\":\"French\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/language/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"language",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LanguageDelete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/language/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"language",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "CustomerGetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/customer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CustomerQuery",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"pageSize\": 100,\n\t\"query\": [\n\t\t{\n\t\t\t\"action\": \"$eq\",\n\t\t\t\"name\": \"id\",\n\t\t\t\"value\": 1\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/customer/query",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customer",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CustomerCreate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Mike\",\r\n   \"languageId\": 2,\r\n   \"email\":\"email@mail.com\",\r\n   \"contact\": \"3453453\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/customer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CustomerUpdate",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Mike\",\r\n   \"languageId\": 1,\r\n   \"email\":\"email@mail.com\",\r\n   \"contact\": \"3453453\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/customer/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customer",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CustomerDelete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/language/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"language",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CustomerGetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/customer/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customer",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "NotificationGetTranslations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/notification/2/translations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notification",
+								"2",
+								"translations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotificationSendCustomer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"notificationId\": 1,\n    \"notificationCategoryId\": 1,\n    \"customerId\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/notification/send/customer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notification",
+								"send",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotificationSendGroup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"notificationId\": 1,\n    \"notificationCategoryId\": 2,\n    \"groupId\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/notification/send/group",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notification",
+								"send",
+								"group"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotificaionCreate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"1\",\r\n    \"displayName\": \"not1\",\r\n    \"description\": \"desc\",\r\n    \"notificationTranslations\": [\r\n        {\r\n            \"notificationText\": \"english text\",\r\n            \"languageId\": 1\r\n        },\r\n        {\r\n            \"notificationText\": \"arabic text\",\r\n            \"languageId\": 2\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/notification",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notification"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NotificationCategory",
+			"item": [
+				{
+					"name": "NotificationCategoryGetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/notification-category",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notification-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotificationCategoryQuery",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"pageSize\": 100,\n\t\"query\": [\n\t\t{\n\t\t\t\"action\": \"$eq\",\n\t\t\t\"name\": \"id\",\n\t\t\t\"value\": 1\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/notification-category/query",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notification-category",
+								"query"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NotificationType",
+			"item": [
+				{
+					"name": "NotificationTypeGetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/notification-type",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notification-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotificationTypeQuery",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"pageSize\": 100,\n\t\"query\": [\n\t\t{\n\t\t\t\"action\": \"$eq\",\n\t\t\t\"name\": \"id\",\n\t\t\t\"value\": 1\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/notification-type/query",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notification-type",
+								"query"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Group",
+			"item": [
+				{
+					"name": "GroupGetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/group/1/customer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"group",
+								"1",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GroupGetAllCustomers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/group/1/customer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"group",
+								"1",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GroupQuery",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"pageSize\": 100,\n\t\"query\": [\n\t\t{\n\t\t\t\"action\": \"$eq\",\n\t\t\t\"name\": \"id\",\n\t\t\t\"value\": 1\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/group/query",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"group",
+								"query"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/status",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/status/health",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"status",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

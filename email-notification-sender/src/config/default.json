@@ -1,0 +1,8 @@
+{
+    "nodeEnv": "development",
+    "perMinuteNotificationRate": 3,
+    "kafkaCluster": "localhost:9092",
+    "kafkaGroupId": "notification_sender_consumer_group_01",
+    "kafkaEmailNotificationsTopic": "notifications-email"
+
+}

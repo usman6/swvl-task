@@ -1,0 +1,74 @@
+version: "3.9"
+services:
+    kafka:
+        image: "johnnypark/kafka-zookeeper"
+        ports:
+            - "2181:2181"
+            - "9092:9092"
+    mysql_db:
+        image: mysql:latest
+        restart: unless-stopped
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - "3306:3306"
+        expose:
+            - "3306"
+        volumes:
+            - ./mysql-db-setup:/docker-entrypoint-initdb.d
+    redis_cache:
+        image: redis:latest
+        restart: unless-stopped
+        ports: 
+            - "6379:6379"
+        expose:
+            - "6379"
+    notification_api:
+        build:
+            context: ./notification-manager-api
+        volumes:
+            - ./notification-manager-api:/opt/notification-manager-api
+        command: node ./src/bin/www
+        restart: unless-stopped
+        ports:
+            - "8080:8080"
+        environment:
+            KAFKA_CLUSTER: kafka:9092
+            DATABASE_URL: mysql://root:root@mysql_db:3306/notification_manager
+            HOST: "0.0.0.0"
+        expose:
+            - "8080"
+        depends_on:
+            - mysql_db
+            - kafka
+    notification_processor:
+        build:
+            context: ./notification-processor
+        volumes:
+            - ./notification-processor:/opt/notification-processor
+        restart: unless-stopped
+        environment:
+            REDIS_SERVER_NAME: "redis_cache"
+            REDIS_SERVER_PORT: "6379"
+            API_URL: "http://notification_api:8080"
+            KAFKA_CLUSTER: "kafka:9092"
+        command: node ./src/main.js
+        depends_on:
+            - notification_api
+            - redis_cache
+            - kafka
+    email_notification_sender:
+        build:
+            context: ./email-notification-sender
+        volumes:
+            - ./email-notification-sender:/opt/email-notification-sender
+        environment:
+            KAFKA_CLUSTER: "kafka:9092"
+            PER_MINUTE_NOTIFICATION_RATE: 3
+        restart: unless-stopped
+        command: node ./src/main.js
+        depends_on:
+            - notification_processor
+            - kafka
+

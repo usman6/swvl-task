@@ -1,0 +1,749 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: notification-manager
+  contact: {}
+host: example.com
+basePath: /
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /api/v1/language:
+    get:
+      summary: LanguageGetAll
+      tags:
+      - Language
+      operationId: LanguageGetAll
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-auth-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+    post:
+      summary: LanguageCreate
+      tags:
+      - Language
+      operationId: LanguageCreate
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/LanguageCreateRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/language/query:
+    post:
+      summary: LanguageQuery
+      tags:
+      - Language
+      operationId: LanguageQuery
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-auth-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/LanguageQueryRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/language/3:
+    put:
+      summary: LanguageUpdate
+      tags:
+      - Language
+      operationId: LanguageUpdate
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/LanguageUpdateRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+    delete:
+      summary: LanguageDelete
+      tags:
+      - Language
+      operationId: LanguageDelete
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/customer:
+    get:
+      summary: CustomerGetAll
+      tags:
+      - Customer
+      operationId: CustomerGetAll
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-auth-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+    post:
+      summary: CustomerCreate
+      tags:
+      - Customer
+      operationId: CustomerCreate
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/CustomerCreateRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/customer/query:
+    post:
+      summary: CustomerQuery
+      tags:
+      - Customer
+      operationId: CustomerQuery
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-auth-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/CustomerQueryRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/customer/5:
+    put:
+      summary: CustomerUpdate
+      tags:
+      - Customer
+      operationId: CustomerUpdate
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/CustomerUpdateRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/customer/1:
+    get:
+      summary: CustomerGetById
+      tags:
+      - Customer
+      operationId: CustomerGetById
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-auth-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/notification/2/translations:
+    get:
+      summary: NotificationGetTranslations
+      tags:
+      - Notification
+      operationId: NotificationGetTranslations
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-auth-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/notification/send/customer:
+    post:
+      summary: NotificationSendCustomer
+      tags:
+      - Notification
+      operationId: NotificationSendCustomer
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-auth-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/NotificationSendCustomerRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/notification/send/group:
+    post:
+      summary: NotificationSendGroup
+      tags:
+      - Notification
+      operationId: NotificationSendGroup
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-auth-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/NotificationSendGroupRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/notification:
+    post:
+      summary: NotificaionCreate
+      tags:
+      - Notification
+      operationId: NotificaionCreate
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/NotificaionCreateRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/notification-category:
+    get:
+      summary: NotificationCategoryGetAll
+      tags:
+      - NotificationCategory
+      operationId: NotificationCategoryGetAll
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-auth-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/notification-category/query:
+    post:
+      summary: NotificationCategoryQuery
+      tags:
+      - NotificationCategory
+      operationId: NotificationCategoryQuery
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-auth-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/NotificationCategoryQueryRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/notification-type:
+    get:
+      summary: NotificationTypeGetAll
+      tags:
+      - NotificationType
+      operationId: NotificationTypeGetAll
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-auth-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/notification-type/query:
+    post:
+      summary: NotificationTypeQuery
+      tags:
+      - NotificationType
+      operationId: NotificationTypeQuery
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-auth-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/NotificationTypeQueryRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/group/1/customer:
+    get:
+      summary: GroupGetAll
+      tags:
+      - Group
+      operationId: GroupGetAll
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-auth-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /api/v1/group/query:
+    post:
+      summary: GroupQuery
+      tags:
+      - Group
+      operationId: GroupQuery
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-auth-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/GroupQueryRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /status/health:
+    get:
+      summary: home
+      tags:
+      - Misc
+      operationId: home
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /status:
+    get:
+      summary: health
+      tags:
+      - Misc
+      operationId: health
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+definitions:
+  LanguageQueryRequest:
+    title: LanguageQueryRequest
+    example:
+      pageSize: 100
+      query:
+      - action: $eq
+        name: id
+        value: 1
+    type: object
+    properties:
+      pageSize:
+        type: integer
+        format: int32
+      query:
+        type: array
+        items:
+          $ref: '#/definitions/Query'
+    required:
+    - pageSize
+    - query
+  Query:
+    title: Query
+    example:
+      action: $eq
+      name: id
+      value: 1
+    type: object
+    properties:
+      action:
+        type: string
+      name:
+        type: string
+      value:
+        type: integer
+        format: int32
+    required:
+    - action
+    - name
+    - value
+  LanguageCreateRequest:
+    title: LanguageCreateRequest
+    example:
+      code: fr
+      displayName: French
+    type: object
+    properties:
+      code:
+        type: string
+      displayName:
+        type: string
+    required:
+    - code
+    - displayName
+  LanguageUpdateRequest:
+    title: LanguageUpdateRequest
+    example:
+      code: sx
+      displayName: French
+    type: object
+    properties:
+      code:
+        type: string
+      displayName:
+        type: string
+    required:
+    - code
+    - displayName
+  CustomerQueryRequest:
+    title: CustomerQueryRequest
+    example:
+      pageSize: 100
+      query:
+      - action: $eq
+        name: id
+        value: 1
+    type: object
+    properties:
+      pageSize:
+        type: integer
+        format: int32
+      query:
+        type: array
+        items:
+          $ref: '#/definitions/Query'
+    required:
+    - pageSize
+    - query
+  CustomerCreateRequest:
+    title: CustomerCreateRequest
+    example:
+      name: Mike
+      languageId: 2
+      email: email@mail.com
+      contact: '3453453'
+    type: object
+    properties:
+      name:
+        type: string
+      languageId:
+        type: integer
+        format: int32
+      email:
+        type: string
+      contact:
+        type: string
+    required:
+    - name
+    - languageId
+    - email
+    - contact
+  CustomerUpdateRequest:
+    title: CustomerUpdateRequest
+    example:
+      name: Mike
+      languageId: 1
+      email: email@mail.com
+      contact: '3453453'
+    type: object
+    properties:
+      name:
+        type: string
+      languageId:
+        type: integer
+        format: int32
+      email:
+        type: string
+      contact:
+        type: string
+    required:
+    - name
+    - languageId
+    - email
+    - contact
+  NotificationSendCustomerRequest:
+    title: NotificationSendCustomerRequest
+    example:
+      notificationId: 1
+      notificationCategoryId: 1
+      customerId: 1
+    type: object
+    properties:
+      notificationId:
+        type: integer
+        format: int32
+      notificationCategoryId:
+        type: integer
+        format: int32
+      customerId:
+        type: integer
+        format: int32
+    required:
+    - notificationId
+    - notificationCategoryId
+    - customerId
+  NotificationSendGroupRequest:
+    title: NotificationSendGroupRequest
+    example:
+      notificationId: 1
+      notificationCategoryId: 1
+      groupId: 1
+    type: object
+    properties:
+      notificationId:
+        type: integer
+        format: int32
+      notificationCategoryId:
+        type: integer
+        format: int32
+      groupId:
+        type: integer
+        format: int32
+    required:
+    - notificationId
+    - notificationCategoryId
+    - groupId
+  NotificaionCreateRequest:
+    title: NotificaionCreateRequest
+    example:
+      code: '1'
+      displayName: not1
+      description: desc
+      notificationTranslations:
+      - notificationText: english text
+        languageId: 1
+      - notificationText: arabic text
+        languageId: 2
+    type: object
+    properties:
+      code:
+        type: string
+      displayName:
+        type: string
+      description:
+        type: string
+      notificationTranslations:
+        type: array
+        items:
+          $ref: '#/definitions/NotificationTranslation'
+    required:
+    - code
+    - displayName
+    - description
+    - notificationTranslations
+  NotificationTranslation:
+    title: NotificationTranslation
+    example:
+      notificationText: english text
+      languageId: 1
+    type: object
+    properties:
+      notificationText:
+        type: string
+      languageId:
+        type: integer
+        format: int32
+    required:
+    - notificationText
+    - languageId
+  NotificationCategoryQueryRequest:
+    title: NotificationCategoryQueryRequest
+    example:
+      pageSize: 100
+      query:
+      - action: $eq
+        name: id
+        value: 1
+    type: object
+    properties:
+      pageSize:
+        type: integer
+        format: int32
+      query:
+        type: array
+        items:
+          $ref: '#/definitions/Query'
+    required:
+    - pageSize
+    - query
+  NotificationTypeQueryRequest:
+    title: NotificationTypeQueryRequest
+    example:
+      pageSize: 100
+      query:
+      - action: $eq
+        name: id
+        value: 1
+    type: object
+    properties:
+      pageSize:
+        type: integer
+        format: int32
+      query:
+        type: array
+        items:
+          $ref: '#/definitions/Query'
+    required:
+    - pageSize
+    - query
+  GroupQueryRequest:
+    title: GroupQueryRequest
+    example:
+      pageSize: 100
+      query:
+      - action: $eq
+        name: id
+        value: 1
+    type: object
+    properties:
+      pageSize:
+        type: integer
+        format: int32
+      query:
+        type: array
+        items:
+          $ref: '#/definitions/Query'
+    required:
+    - pageSize
+    - query
+tags:
+- name: Language
+- name: Customer
+- name: Notification
+- name: NotificationCategory
+- name: NotificationType
+- name: Group
+- name: Misc
+  description: ''
