@@ -29,6 +29,7 @@ services:
             context: ./notification-manager-api
         volumes:
             - ./notification-manager-api:/opt/notification-manager-api
+            - /opt/notification-manager-api/node_modules
         command: node ./src/bin/www
         restart: unless-stopped
         ports:
@@ -47,6 +48,7 @@ services:
             context: ./notification-processor
         volumes:
             - ./notification-processor:/opt/notification-processor
+            - /opt/notification-processor/node_modules
         restart: unless-stopped
         environment:
             REDIS_SERVER_NAME: "redis_cache"
@@ -63,6 +65,7 @@ services:
             context: ./email-notification-sender
         volumes:
             - ./email-notification-sender:/opt/email-notification-sender
+            - /opt/email-notification-sender/node_modules
         environment:
             KAFKA_CLUSTER: "kafka:9092"
             PER_MINUTE_NOTIFICATION_RATE: 3
