@@ -2,6 +2,69 @@
 
 A customer is registered with a preferred language, email address and contact. Customers can be organized into groups. A notification has a type e.g. group, individual and a category e.g. Email, SMS, PUSH. A notification also has a translated scripts in different languages. A notification is created with it's translations using NotificationCreate API. After a notification is created, it can be sent to customer/group and at the time of sending, notification category is specified which tells if a notification is to be sent via Email, SMS, or app PUSH. 
 
+# Prerequisites
+
+- Docker
+- Docker Compose
+
+# Setting up & Running
+
+Clone the repository and run it.
+
+```bash
+  git clone https://github.com/usman6/swvl-task.git
+  cd swvl-task
+  docker-compose up
+```
+A couple of sample users and setup data is automatically created.
+
+Create notification...
+
+```bash
+curl --location --request POST 'http://localhost:8080/api/v1/notification' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "code": "1",
+    "displayName": "not1",
+    "description": "desc",
+    "notificationTranslations": [
+        {
+            "notificationText": "english text",
+            "languageId": 1
+        },
+        {
+            "notificationText": "arabic text",
+            "languageId": 2
+        }
+    ]
+}'
+```
+
+Send the previously created notification via email(notificationCategoryId:2) after replacing the notificationId returned in response to previous request.
+
+```bash
+  # send a group notification
+  curl --location --request POST 'localhost:8080/api/v1/notification/send/group' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "notificationId": 1,
+    "notificationCategoryId": 2,
+    "groupId":1
+}'
+
+  # send to single customer
+
+curl --location --request POST 'localhost:8080/api/v1/notification/send/customer' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "notificationId": 1,
+    "notificationCategoryId": 2,
+    "customerId":1
+}'
+```
+
+Notification will be visible in console of email-notification-sender service.
+
 # Swagger Documentation
 
 Swagger UI based API docs are available at the following end point.
